@@ -1,0 +1,23 @@
+From: Hilko Bengen <bengen@debian.org>
+Date: Mon, 12 Oct 2020 00:26:45 +0200
+Subject: Fix libssh2 Makefile.am
+
+---
+ libssh2/Makefile.am | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/libssh2/Makefile.am b/libssh2/Makefile.am
+index 6411e8a..8d264f1 100644
+--- a/libssh2/Makefile.am
++++ b/libssh2/Makefile.am
+@@ -1,9 +1,6 @@
+ AUTOMAKE_OPTIONS = foreign nostdinc
+ 
+-SUBDIRS = src tests docs
+-if BUILD_EXAMPLES
+-SUBDIRS += example
+-endif
++SUBDIRS = src
+ 
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = libssh2.pc

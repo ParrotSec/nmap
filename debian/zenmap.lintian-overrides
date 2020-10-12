@@ -1,0 +1,6 @@
+# The Network Mapper Front End is a good and concise short description
+description-synopsis-starts-with-article
+# pkexec is used to provide the root version of zenmap
+# while pkexec isn't provided in this package we declare a
+# dependency on it.
+desktop-command-not-in-package usr/share/applications/zenmap-root.desktop pkexec

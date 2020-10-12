@@ -1,0 +1,30 @@
+From: Hilko Bengen <bengen@debian.org>
+Date: Thu, 19 Nov 2015 23:10:17 +0100
+Subject: Link against lua-lpeg
+
+---
+ configure.ac | 1 +
+ nse_lpeg.cc  | 1 -
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index ac123af..5226451 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -828,6 +828,7 @@ else
+   if test $have_lua != yes; then
+     AC_CHECK_HEADERS([lua5.3/lua.h lua/5.3/lua.h lua.h lua/lua.h], [break])
+     AC_SEARCH_LIBS(lua_isyieldable, [lua5.3 lua53 lua], [have_lua=yes],, [-lm])
++    AC_SEARCH_LIBS(luaopen_lpeg, [lua5.3-lpeg],,, [-lm])
+     AC_LANG_PUSH(C)
+     # We need Lua 5.3 exactly
+     AC_MSG_CHECKING([for lua version == 503])
+diff --git a/nse_lpeg.cc b/nse_lpeg.cc
+index ec7b6c4..219530b 100644
+--- a/nse_lpeg.cc
++++ b/nse_lpeg.cc
+@@ -18,4 +18,3 @@
+ #define luaL_register(L,n,f) \
+ 	{ if ((n) == NULL) luaL_setfuncs(L,f,0); else luaL_newlib(L,f); }
+ 
+-#include "lpeg.c"

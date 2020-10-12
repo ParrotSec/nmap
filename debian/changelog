@@ -1,0 +1,1460 @@
+nmap (7.91+dfsg1-1kali1) kali-dev; urgency=medium
+
+  * Import new upstream release. Keep libpcap embedded for Kali
+
+ -- Sophie Brun <sophie@offensive-security.com>  Mon, 12 Oct 2020 15:29:14 +0200
+
+nmap (7.91+dfsg1-1) unstable; urgency=medium
+
+  * New upstream version 7.91+dfsg1
+  * Update patches; add patch to fix automake breakage
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 12 Oct 2020 00:32:24 +0200
+
+nmap (7.80+dfsg1-5kali1) kali-dev; urgency=medium
+
+  * Import new upstream release. Keep libpcap embedded for Kali
+
+ -- Sophie Brun <sophie@offensive-security.com>  Mon, 13 Jul 2020 11:03:54 +0200
+
+nmap (7.80+dfsg1-5) unstable; urgency=medium
+
+  * Make nmap_service.ex_ reproducible, thanks to Chris Lamb for the patch
+    (Closes: #964369)
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 06 Jul 2020 23:01:39 +0200
+
+nmap (7.80+dfsg1-4) unstable; urgency=medium
+
+  * Revert "Enable running all tests" as this caused network activity and
+    FTBFS on some autobuilders.
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 04 Jul 2020 17:00:00 +0200
+
+nmap (7.80+dfsg1-3) unstable; urgency=medium
+
+  [ Hilko Bengen ]
+  * Enable running all tests
+  * Ship obfuscated nmap_service.ex_ instead of nmap_service.exe (Closes:
+    #929272)
+
+  [ Samuel Henrique ]
+  * Configure git-buildpackage for Debian
+  * d/control: Add Rules-Requires-Root: no
+  * Bump DH to 13
+  * d/p/upstream/signing-key.asc: Remove extra signature
+  * Bump Standards Version to 4.5.0
+
+  [ Automatic changes ]
+  * Trim trailing whitespace.
+  * Wrap long lines in changelog entries: 6.25-0.2, 4.76-0ubuntu1.
+  * Set debhelper-compat version in Build-Depends.
+  * Fix field name typos in debian/copyright.
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 04 Jul 2020 15:34:56 +0200
+
+nmap (7.80+dfsg1-2kali2) kali-dev; urgency=medium
+
+  * Refresh patch and import upstream patch to fix issue
+
+ -- Sophie Brun <sophie@offensive-security.com>  Tue, 10 Mar 2020 17:52:31 +0100
+
+nmap (7.80+dfsg1-2kali1) kali-dev; urgency=medium
+
+  * Import new upstream release. Keep libpcap embedded for Kali
+
+ -- Sophie Brun <sophie@offensive-security.com>  Tue, 26 Nov 2019 10:21:49 +0100
+
+nmap (7.80+dfsg1-2) unstable; urgency=medium
+
+  [ Samuel Henrique ]
+  * Add salsa-ci.yml
+  * d/rules: Pass some hardening flags to nmap_service.exe
+  * salsa-ci: Disable BLHC test
+
+  [ Hilko Bengen ]
+  * Drop zenmap package due to python2 and pygtk removal (Closes: #885498)
+  * Use Python3 for ndiff, using Bryan Quigley's patch (PR #1807).
+    Closes: #883161
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 08 Nov 2019 12:41:14 +0100
+
+nmap (7.80+dfsg1-1kali1) kali-dev; urgency=medium
+
+  * Import new upstream release. Keep libpcap embedded for Kali
+
+ -- Sophie Brun <sophie@offensive-security.com>  Fri, 16 Aug 2019 13:47:35 +0200
+
+nmap (7.80+dfsg1-1) unstable; urgency=medium
+
+  * New upstream version 7.80+dfsg1 (Closes: #934728)
+  * Disable check for upstream signatures which are apparently
+    no longer published.
+  * Bump Debhelper compat level
+  * Replace dh_install --fail-missing
+  * Bump Standards-Version
+  * dh_missing
+  * Rework patches
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 15 Aug 2019 09:25:50 +0200
+
+nmap (7.70+dfsg1-6kali1) kali-dev; urgency=medium
+
+  * Import new upstream release. Keep libpcap embedded for Kali
+
+ -- Sophie Brun <sophie@offensive-security.com>  Wed, 09 Jan 2019 16:01:01 +0100
+
+nmap (7.70+dfsg1-6) unstable; urgency=medium
+
+  * Team upload
+  * Drop 0004-library-versions.patch, it has been fixed differently
+    by upstream, and it is now breaking Ubuntu builds.
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Wed, 12 Dec 2018 15:58:18 +0100
+
+nmap (7.70+dfsg1-5kali1) kali-dev; urgency=medium
+
+  * Import new upstream release. Keep libpcap embedded for Kali
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 12 Nov 2018 15:10:19 +0100
+
+nmap (7.70+dfsg1-5) unstable; urgency=medium
+
+  * d/control: zenmap: move polkit from Depends to Recommends, note
+    that the desktop entry of zenmap as root won't work without polkit
+    (closes: #912452)
+
+ -- Samuel Henrique <samueloph@debian.org>  Wed, 31 Oct 2018 20:02:43 -0300
+
+nmap (7.70+dfsg1-4) unstable; urgency=medium
+
+  [ Samuel Henrique ]
+  * Bump Standards-Version to 4.2.1
+  * Update my email to @debian.org
+  * d/p/0005: remove ncat's manpage self-reference (closes: #765999)
+  * d/control: better ndiff extended description
+  * lintian-overrides:
+    - ndiff: add description lintian (as nmap and zenmap does)
+    - nmap: add false positive lintians
+    - nmap-common: add two overrides for READMEs
+    - zenmap: add override for pkexec
+
+  [ Christian Ehrhardt ]
+  * Fix "zenmap as root" using polkit instead of menu
+    (closes: #890728) (LP: #1263311)
+
+ -- Samuel Henrique <samueloph@debian.org>  Wed, 31 Oct 2018 03:26:50 -0300
+
+nmap (7.70+dfsg1-3kali1) kali-dev; urgency=medium
+
+  * Import new upstream release. Keep libpcap embedded for Kali
+
+ -- Sophie Brun <sophie@freexian.com>  Tue, 15 May 2018 11:31:30 +0200
+
+nmap (7.70+dfsg1-3) unstable; urgency=medium
+
+  * Make ncat Architecture: any
+  * Fix ncat description
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 09 Apr 2018 11:49:11 +0200
+
+nmap (7.70+dfsg1-2) unstable; urgency=medium
+
+  [ Samuel Henrique ]
+  * Bump DH to 11
+  * d/copyright: update debian/* entry
+
+  [ Hilko Bengen ]
+  * Ship ncat as separate package, provide nc alternative
+    (Closes: #881639, #560377)
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 08 Apr 2018 22:17:31 +0200
+
+nmap (7.70+dfsg1-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Lukas Schwaighofer ]
+  * Leave embedded copy of libssh2 in the source package to ease packaging for
+    Ubuntu (which requires the embedded copy).
+    - Update debian/copyright with the libssh2 copyright details.
+  * Update debian/rules to use the included libssh2 copy when builing for
+    Ubuntu and its derivates.
+
+  [ Samuel Henrique ]
+  * d/[control|watch]: update upstream homepage to https
+
+  [ Raphaël Hertzog ]
+  * Update team maintainer address to Debian Security Tools
+    <team+pkg-security@tracker.debian.org>
+  * Update Vcs-Git and Vcs-Browser for the move to salsa.debian.org
+
+  [ Hilko Bengen ]
+  * New upstream version 7.70+dfsg1
+  * Bump Standards-Version
+  * nmap: Suggest ndiff, instead of recommending it (Closes: #885871)
+  * Update patches
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 27 Mar 2018 21:48:37 +0200
+
+nmap (7.70+dfsg1-0kali2) kali-dev; urgency=medium
+
+  * Rebuild with Debian orig.tag.xz
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 02 Apr 2018 21:12:38 +0200
+
+nmap (7.70+dfsg1-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release. Keep libpcap embedded for Kali
+  * Remove merged patches: 0004-library-versions.patch 0005-autotools.patch
+    0006-move-manual-defines.patch
+  * Update debian/copyright
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 26 Mar 2018 14:18:16 +0200
+
+nmap (7.60+dfsg2-1kali1) kali-dev; urgency=medium
+
+  * Synchronize with Debian: reintroduce libpcap included for Kali
+    (see bug 4226)
+
+ -- Sophie Brun <sophie@freexian.com>  Thu, 09 Nov 2017 13:34:04 +0100
+
+nmap (7.60+dfsg2-1) unstable; urgency=medium
+
+  * Repack source: Remove *.class files
+  * Include *.class (for jdwp-exec.nse), nmap_service.exe (for
+    smb-psexec.nse), built from source
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 27 Sep 2017 14:53:30 +0200
+
+nmap (7.60+dfsg1-2) unstable; urgency=low
+
+  * Team upload.
+  * Add new patch (0006-move-manual-defines.patch) which moves manually added
+    defines from config.h.in (where they are overwritten by dh-autoreconf) to
+    a proper location.  Fixes FTBFS on kfreebsd-any architectures.
+
+ -- Lukas Schwaighofer <lukas@schwaighofer.name>  Mon, 18 Sep 2017 23:29:18 +0200
+
+nmap (7.60+dfsg1-1) unstable; urgency=low
+
+  * Team upload.
+  * Repack source:
+    - Remove non-DFSG compliant files.
+    - Remove unused libraries.
+    - Update debian/watch.
+  * debian/watch:
+    - Correct syntax error.
+    - Check upstream's pgp signatures.
+  * Override lintian warnings:
+    - Description synopsis starting with "The Network Mapper" is ok.
+    - Windows devel files will be kept until upstream drops them.
+  * Put architecture independent files into new nmap-common package (marked as
+    Multi-Arch: foreign).
+  * debian/control:
+    - Change priority from extra (deprecated) to optional.
+    - Bump Standards-Version to 4.1.0.
+    - Add new suggestion: nmap suggests zenmap, the graphical frontend.
+    - Zenmap needs ndiff, add the missing dependency.
+    - Use Breaks (instead of Conflicts) for znmap's versioned dependency on
+      nmap as this weaker restriction is sufficient.
+    - Clean up versioned python2 dependencies (there's only 2.7 now).
+    - Move python-pysqlite2 to Recommends as zenmap works without it (but
+      loses useful features like searching and database saving).
+    - No longer Recommend gksu as the `su-to-root` script is not part of that
+      package.
+  * debian/patches:
+    - Added new patch (0004-library-versions.patch) so nmap reports correct
+      library versions.
+    - Add new patch (0005-autotools.patch) to fix autotools problems and
+      allow refreshing all autotools generated files with `autoreconf -fi`.
+  * debian/rules:
+    - Drop --with=autoreconf, this is the default in debhelper compatibility
+      level 10.
+    - Add STRIP=/bin/true to dh_auto_configure to generate useful dbgsym
+      packages.
+    - Update the dh-autoreconf call so all autotools geneated files used
+      in the build are refreshed.
+  * Migrate debian/copyright to machine readable DEP-5 format.
+
+ -- Lukas Schwaighofer <lukas@schwaighofer.name>  Fri, 15 Sep 2017 22:51:59 +0200
+
+nmap (7.60-1) unstable; urgency=medium
+
+  * New upstream version 7.60
+  * Rebase patches
+  * Add libssh2 build-dependency to avoid using the embedded copy
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 12 Aug 2017 00:34:12 +0200
+
+nmap (7.50-1) unstable; urgency=medium
+
+  * New upstream version 7.50.
+  * Bump Standards-Version to 4.0.0.
+  * Remove unused lintian overrides.
+
+ -- Samuel Henrique <samueloph@debian.org>  Sat, 17 Jun 2017 21:04:49 -0300
+
+nmap (7.40-1kali1) kali-dev; urgency=medium
+
+  * Synchronize with Debian: keep libpcap included for Kali
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 23 Dec 2016 09:54:33 +0100
+
+nmap (7.40-1) unstable; urgency=medium
+
+  * New upstream version 7.40.
+  * debian/patches:
+    - 0001-use-su-to-root.patch: Refresh patch.
+    - 0004-zenmap-desktop.patch: Remove patch, applied upstream.
+  * debian/watch: Bump to v4.
+
+ -- Samuel Henrique <samueloph@debian.org>  Thu, 22 Dec 2016 00:52:47 -0200
+
+nmap (7.31-2kali1) kali-dev; urgency=medium
+
+  * Synchronize with Debian: keep libpcap included for Kali
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 19 Dec 2016 15:27:21 +0100
+
+nmap (7.31-2) unstable; urgency=medium
+
+  [ Gianfranco Costamagna ]
+  * Add debian/gbp.conf file
+
+  [ Samuel Henrique ]
+  * Bump DH level to 10.
+  * Add myself as an uploader.
+  * debian/control: Remove dh-autoreconf, now a dependency of DH 10.
+  * debian/patches:
+    - 0004-zenmap-desktop.patch: New patch to remove Encoding key and add
+      Keywords entry for zenmap's desktop files, sent upstream.
+  * debian/rules:
+    - Avoid useless dependencies with "-Wl,--as-needed".
+    - Enable all hardening flags with "hardening=+all".
+    - Remove "--parallel" parameter, default on DH 10.
+  * wrap-and-sort -a.
+
+  [ Hilko Bengen ]
+  * Add manpage links for zenmap links (nmapfe, nmap)
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 30 Nov 2016 20:41:51 +0100
+
+nmap (7.31-1kali1) kali-dev; urgency=medium
+
+  * Synchronize with Debian: keep libpcap included for Kali
+
+ -- Sophie Brun <sophie@freexian.com>  Thu, 17 Nov 2016 12:04:45 +0100
+
+nmap (7.31-1) unstable; urgency=medium
+
+  * New upstream version 7.31
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 25 Oct 2016 23:26:37 +0200
+
+nmap (7.31-0kali3) kali-experimental; urgency=medium
+
+  * Reintroduce build with libpcacp included
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 04 Nov 2016 10:56:01 +0100
+
+nmap (7.31-0kali2) kali-dev; urgency=medium
+
+  * Drop debian/rules with libpcap included
+
+ -- Sophie Brun <sophie@freexian.com>  Tue, 25 Oct 2016 11:18:54 +0200
+
+nmap (7.31-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+  * Keep the debian/rules with libpcap included for kali
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 24 Oct 2016 16:34:53 +0200
+
+nmap (7.30-1) unstable; urgency=medium
+
+  * New upstream version 7.30
+  * Rework patches
+  * Update build-dependencies, bump Standards-Version
+  * Further work will be done as part of the Debian Security Tools
+    Packaging Team.
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 08 Oct 2016 12:39:07 +0200
+
+nmap (7.30-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+  * Remove 0004-Fix-INTERFACES-NONE-FOUND-for-real.patch: merged in new
+    upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 30 Sep 2016 14:32:28 +0200
+
+nmap (7.25~BETA2-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+  * Lua 5.3 is now needed to build the NSE
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 02 Sep 2016 10:19:40 +0200
+
+nmap (7.25~BETA1-0kali1) kali-dev; urgency=medium
+
+  * Import new usptream release
+  * Keep the debian/rules with libpcap included for kali
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 22 Jul 2016 13:08:14 +0200
+
+nmap (7.12-2) unstable; urgency=medium
+
+  * Update python-gobject dependency
+  * Use upstream patch to fix #821913 (Closes: #834546)
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 04 Sep 2016 22:16:15 +0200
+
+nmap (7.12-1) unstable; urgency=medium
+
+  * New upstream version
+  * Bump Standards-Version
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 03 May 2016 07:47:15 +0200
+
+nmap (7.12-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+  * Keep the debian/rules with libpcap included for kali
+
+ -- Sophie Brun <sophie@freexian.com>  Thu, 31 Mar 2016 09:10:53 +0200
+
+nmap (7.11-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Thu, 24 Mar 2016 09:14:27 +0100
+
+nmap (7.10-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+  * Keep the debian/rules with libpcap included for kali
+  * Drop fix-undefined-reference.patch (included upstream)
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 18 Mar 2016 11:25:07 +0100
+
+nmap (7.01-3) unstable; urgency=medium
+
+  * Apply patch by Jan Nordholz to ignore unenumerable interfaces
+    (Closes: #821913)
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 23 Apr 2016 14:41:43 +0200
+
+nmap (7.01-2) unstable; urgency=medium
+
+  * Remove unneeded build-dependencies; add dh-python
+  * Simplify install
+  * Add Lintian overrides for python-script-but-no-python-dep
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 24 Jan 2016 20:57:21 +0100
+
+nmap (7.01-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 20 Dec 2015 16:37:23 +0100
+
+nmap (7.01-0kali1) kali-dev; urgency=medium
+
+  * New upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 11 Dec 2015 11:50:47 +0100
+
+nmap (7.00-1kali1) kali-dev; urgency=medium
+
+  * Import from debian
+  * Drop unused files: debian/nmap.dirs, debian/nmap.files, debian/pycompat,
+    debian/source/options, debian/zenmap.dirs, debian/zenmap.files,
+    debian/zenmap.manpages, debian/zenmap.postinst, debian/zenmap.prerm
+  * keep the debian/rules with libpcap included for kali
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 30 Nov 2015 10:21:29 +0100
+
+nmap (7.00-1) unstable; urgency=medium
+
+  * New upstream version
+  * Drop patches that are no longer needed
+  * Don't install any uninstall_* scripts
+  * Link nmap against lua-lpeg
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 19 Nov 2015 23:11:41 +0100
+
+nmap (7.00-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 20 Nov 2015 14:20:01 +0100
+
+nmap (6.49~BETA6-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 06 Nov 2015 10:02:21 +0100
+
+nmap (6.49~BETA5-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release (closes kali bug:0002680)
+  * debian/rules: dh_auto_configure -- --with-libpcap=included. It can be
+    dropped when https://github.com/nmap/nmap/issues/34 or
+    https://github.com/nmap/nmap/issues/153 are fixed
+  * Add a patch to build with liblua5.2-dev new version 5.2.4-1
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 25 Sep 2015 08:44:50 +0200
+
+nmap (6.49~BETA4-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+  * Drop patches 0003-Updated-German-translation-of-zenmap.patch and
+    0004-Fail-early-when-unable-to-properly-resolve-proxy-nam.patch as they
+    have been integrated upstream
+  * debian/rules: drop all uninstall files after auto_install
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 13 Jul 2015 15:07:40 +0200
+
+nmap (6.47-7) unstable; urgency=medium
+
+  * Replaced versioned Conflicts with Breaks/Replaces (Closes: #789897).
+    Thanks to Michael Biebl for pointing this out.
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 28 Jun 2015 12:42:32 +0200
+
+nmap (6.47-6) unstable; urgency=medium
+
+  * ndiff: Added versioned Conflicts (Closes: #789897)
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 25 Jun 2015 18:03:40 +0200
+
+nmap (6.47-5) unstable; urgency=medium
+
+  * Added option to debian/watch to recognize beta, test tags
+  * Moved ndiff.py to ndiff (Closes: #789776)
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 24 Jun 2015 22:44:05 +0200
+
+nmap (6.47-4) unstable; urgency=medium
+
+  * Updated Vcs-* links, added Homepage field
+  * Added upstream patch to deal with unuseable socks proxy (Closes:
+    #773817)
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 27 Apr 2015 00:10:58 +0200
+
+nmap (6.47-3) unstable; urgency=medium
+
+  * Updated German translation of zenmap, thanks to Chris Leick (Closes:
+    #764653)
+  * Bumped Standards-Version
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 11 Oct 2014 19:37:08 +0200
+
+nmap (6.47-2) unstable; urgency=medium
+
+  * Added updated German zenmap translation (Closes: #687982)
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 21 Sep 2014 17:08:11 +0200
+
+nmap (6.47-1kali1) kali; urgency=low
+
+  * Upstream update
+
+ -- Mati Aharoni <muts@kali.org>  Sat, 23 Aug 2014 06:31:30 -0400
+
+nmap (6.47-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 25 Aug 2014 12:04:15 +0200
+
+nmap (6.46-3) unstable; urgency=medium
+
+  * Use autotools-dev to work around broken upstream autofoo. Thanks to
+    Matthias Klose. Closes: #757456
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 24 Aug 2014 10:57:49 +0200
+
+nmap (6.46-2) unstable; urgency=medium
+
+  * Removed obsolete debian/pycompat file
+  * Fixed typo in package description (Closes: #748629)
+  * Updated Vcs-* fields
+  * Use Debian's ca-certificates instead of ca-bundle.crt provided in
+    upstream tarball (Closes: #748958)
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 30 May 2014 21:39:24 +0200
+
+nmap (6.46-1kali1) kali; urgency=low
+
+  * Upstream import
+
+ -- Mati Aharoni <muts@kali.org>  Fri, 23 May 2014 05:33:14 -0400
+
+nmap (6.46-1) unstable; urgency=medium
+
+  * New upstream version
+  * Adopted the package with previous maintainer's blessing.
+  * Updated watch file
+  * Switched to source format 3.0 (quilt)
+  * Split off ndiff into its own package (Closes: #691774)
+  * No longer suppress pcap compatibility check
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 25 Apr 2014 19:45:22 +0200
+
+nmap (6.45-0kali1) kali; urgency=low
+
+  * Upstream update
+
+ -- Mati Aharoni <muts@kali.org>  Thu, 17 Apr 2014 03:15:07 -0400
+
+nmap (6.40-1kali3) kali; urgency=low
+
+  * Bump version, rebuild against newer openssl libs
+
+ -- Mati Aharoni <muts@kali.org>  Fri, 11 Apr 2014 04:56:26 -0400
+
+nmap (6.40-1kali2) kali; urgency=low
+
+  * Update package to use same .orig.tar.gz than Debian.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Fri, 06 Dec 2013 10:35:07 +0100
+
+nmap (6.40-1kali1) kali; urgency=low
+
+  * Upstream nmap import
+
+ -- Mati Aharoni <muts@kali.org>  Sun, 11 Aug 2013 11:21:32 -0400
+
+nmap (6.40-0.2) unstable; urgency=low
+
+  * Yet another non-maintainer upload.
+  * Modernize Debian build
+    - Use Debhelper 9, with --parallel
+    - Use dh-autoreconf (Closes: #727283)
+    - Bump Standards-Version
+    - Update git URL
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 21 Jan 2014 23:12:31 +0100
+
+nmap (6.40-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream version
+    - Contains fix for CVE-2013-4885 (Closes:  #719289)
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 12 Aug 2013 21:36:10 +0200
+
+nmap (6.25-1kali3) kali; urgency=low
+
+  * Version bump test
+
+ -- Mati Aharoni <muts@kali.org>  Thu, 13 Dec 2012 17:59:09 -0500
+
+nmap (6.25-1kali2) kali; urgency=low
+
+  * Version bump
+
+ -- Mati Aharoni <muts@kali.org>  Thu, 13 Dec 2012 17:48:54 -0500
+
+nmap (6.25-1kali1) kali; urgency=low
+
+  * Removed desktop entries
+
+ -- Mati Aharoni <muts@kali.org>  Thu, 13 Dec 2012 16:54:59 -0500
+
+nmap (6.25-1kali0) kali; urgency=low
+
+  * Update to 6.25
+
+ -- Mati Aharoni <muts@kali.org>  Thu, 13 Dec 2012 16:50:47 -0500
+
+nmap (6.25-0.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * debian/rules: Make sure zenmap is built again (tabs vs. spaces), other
+    cleanups
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 27 May 2013 22:02:16 +0200
+
+nmap (6.25-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream version (Closes: #705762)
+  * Lua 5.2 is now needed to build the NSE
+  * Use upstream's desktop files and icons
+  * Removed calls to dh_desktop, dh_undocumented
+  * Made zenmap Architecture: all since it does not contain any
+    architectue-specific files
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 20 May 2013 18:27:15 +0200
+
+nmap (6.00-0.3) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Apply upstream fix for interfaces in monitor mode (Closes: #696446).
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 29 Dec 2012 18:43:12 +0100
+
+nmap (6.00-0.2kali1) kali; urgency=low
+
+  * Version bump and desktop fixes
+
+ -- Mati Aharoni <muts@kali.org>  Sat, 01 Dec 2012 11:12:17 -0500
+
+nmap (6.00-0.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Enable xz compression for all binaries to save some space on CD
+    images (Closes: #688708).
+
+ -- Cyril Brulebois <kibi@debian.org>  Tue, 25 Sep 2012 00:35:36 +0200
+
+nmap (6.00-0.1kali3) kali; urgency=low
+
+  * Fixed desktop copy in rules file
+
+ -- Mati Aharoni <muts@kali.org>  Sat, 01 Dec 2012 10:30:33 -0500
+
+nmap (6.00-0.1kali2) kali; urgency=low
+
+  * Updating desktop files
+
+ -- Mati Aharoni <muts@kali.org>  Sat, 01 Dec 2012 09:38:12 -0500
+
+nmap (6.00-0.1kali1) kali; urgency=low
+
+  * Upload with no changes to rebuild in kali/wheezy environment with a
+    version greater than what's in wheezy.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Mon, 13 Aug 2012 21:31:03 +0200
+
+nmap (6.00-0kali1) kali; urgency=low
+
+  * New upstream version.
+  * Add a desktop file for nmap.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Thu, 31 May 2012 09:13:54 +0200
+
+nmap (6.00-0.1) unstable; urgency=low
+
+  * Non-maintainer upload
+  * New upstream version (Closes: #674573)
+  * set CFLAGS etc. via dpkg-buildflags. This enables building with
+    hardening flags
+  * Do not use included liblinear
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 19 Jun 2012 23:40:43 +0200
+
+nmap (5.51.6-0.3) unstable; urgency=low
+
+  * Non-maintainer upload
+  * Disable pcap compatibility check, second take. (Closes: #671064)
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 30 May 2012 20:51:53 +0200
+
+nmap (5.51.6-0.2) unstable; urgency=low
+
+  * Non-maintainer upload
+  * use DESTDIR instead of prefix for make install. This fixes the zenmap
+    sys.path issue (#663217) as well as the path in the .desktop files.
+    Closes: #542958
+  * revert change to zenmap setup.py script
+  * Got rid of country-specific part in the directory
+  * Disable pcap compatibility check that caused the internal libpcap copy
+    to be used on kfreebsd-* (Closes: #671064).
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 26 May 2012 13:31:37 +0200
+
+nmap (5.51.6-0.1kali1) kali; urgency=low
+
+  * Synchronize with Debian. Remaining changes are:
+    - Update the debian/*.desktop files to include the Kali categories.
+    - Drop ncat/config.{guess,sub} since they are removed by the clean
+      rule (avoids errors of git-buildpackage)
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Fri, 27 Apr 2012 12:10:51 +0000
+
+nmap (5.51.6-0.1) unstable; urgency=low
+
+  * Non-maintainer upload
+  * New upstream version (Closes: #630144)
+  * Added watch file
+  * Simplified debian/*.files, added translated manpages (Closes: #358336)
+  * Added Python dependency for ndiff to nmap package
+  * Removed empty postinst, prerm scripts
+  * No longer append the build directory to zenmap's sys.path (Closes: #663217)
+  * Use dh_python2 instead of dh_pycentral. Thanks to Arthur de Jong for
+    the patch. Closes: #616917
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 18 Apr 2012 21:54:53 +0200
+
+nmap (5.21-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Apply patch from Ubuntu to fix FTBFS with openssl 1.0 by dropping md2
+    support (closes: #621938).  Thanks, Dave Walker!
+
+ -- Julien Cristau <jcristau@debian.org>  Sat, 02 Jul 2011 12:29:49 +0200
+
+nmap (5.21-1) unstable; urgency=low
+
+  [Jonathan Davies]
+
+  * Deliver the rest of the nmap files.
+
+  [LaMont Jones]
+
+  * force ncat to use nmap copy of config.guess/sub
+  * New upstream version.  Closes: #569894, #546564, #510158, #507867, #539244
+  * Fixed packaging.  Closes: #584253
+  * minor lintian fixes.
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 11 Aug 2010 11:17:24 -0600
+
+nmap (5.21-1~0) unstable; urgency=low
+
+  * new upstream
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 03 Feb 2010 18:26:28 -0700
+
+nmap (5.51-0kali1) kali; urgency=low
+
+  * New upstream release.
+  * Update debian/name.files and debian/zenmap.files to install all the
+    new files and drop references to removed files.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Mon, 19 Mar 2012 21:27:44 +0000
+
+nmap (5.20-0) unstable; urgency=low
+
+  * new upstream release
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 22 Jan 2010 08:45:09 -0700
+
+nmap (5.00-3) unstable; urgency=low
+
+  [Petr Salinger]
+
+  * fix FTBFS on GNU/kFreeBSD.  Closes: #542388
+
+  [LaMont Jones]
+
+  * Provide and Replace: ndiff
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 28 Aug 2009 13:02:24 -0600
+
+nmap (5.00-2) unstable; urgency=low
+
+  * rules: fix dependencies for -j.  Closes: #541984
+  * Conflicts: ndiff.  Different enough to not warrant Replaces.
+    Closes: #542054
+  * new config.guess, updated rules for same.  Closes: #542079
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 18 Aug 2009 06:48:52 -0600
+
+nmap (5.00-1) unstable; urgency=low
+
+  * new upstream
+
+ -- LaMont Jones <lamont@debian.org>  Sun, 16 Aug 2009 20:22:25 -0600
+
+nmap (4.76-0ubuntu4) jaunty; urgency=low
+
+  * No-change rebuild to fix lpia shared library dependencies.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Mar 2009 13:35:25 +0000
+
+nmap (4.76-0ubuntu3) jaunty; urgency=low
+
+  * debian/{rules,zenmap.dirs}: install zenmap.xpm into the correct directory,
+    fixes broken icon in the menu (LP: #335169)
+  * debian/zenmap.files: the zenmap/pixmaps/radialnet/ directory was not
+    installed, fixes crash due to missing pixmap (LP: #335166)
+  * Makefile.in: added --install-layout=deb to setup.py install, fixes FTBFS
+
+ -- Adrien Cunin <adri2000@ubuntu.com>  Sun, 15 Mar 2009 02:02:17 +0100
+
+nmap (4.76-0ubuntu2) jaunty; urgency=low
+
+  * debian/nmap.files: Included missing 'UPnP-info.nse' file needed to fix
+    script scan (LP: #319656).
+
+ -- Jonathan Davies <jpds@ubuntu.com>  Fri, 30 Jan 2009 10:03:03 +0000
+
+nmap (4.76-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release (LP: #268996)
+  * Edit broken links in debian/nmap.files, debian/zenmap.dirs,
+    debian/zenmap.files
+  * Edit path to pixmaps in debian/rules
+
+ -- Petr E. Antonov <Petr.E.Antonov@gmail.com>  Mon, 19 Jan 2009 10:24:39 +0100
+
+nmap (4.62-1ubuntu1) intrepid; urgency=low
+
+  * Drop liblua5.1-dev build dependency, it's in universe.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 11 Aug 2008 22:02:35 +0200
+
+nmap (4.62-1) unstable; urgency=low
+
+  [fyodor]
+
+  * new upstream release
+
+  [Davide]
+
+  * create an desktop file for zenmap.  Closes: #457799
+  * remove useless file /usr/bin/uninstall_zenmap.  Closes: #474511
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 31 May 2008 22:55:14 -0600
+
+nmap (4.60-1) unstable; urgency=low
+
+  [bmenrigh]
+
+  * Tandberg MXP Video Conference appliance telnetd.  Thanks to Tom Sellers
+  * Dropping stray '*' on previous Tandberg MXP match line.
+
+  [doug]
+
+  * New match line for another version of VxWorks FTPd
+  * AXIS webcam ftpd standardisation. Thanks to Lionel Cons
+  * vsftpd 00PS->OOPS patch from Kris
+
+  [david]
+
+  * Fix a typo in MACLookup.cc: corolation -> correlation.
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 04 Apr 2008 00:40:50 -0600
+
+nmap (4.60-0) unstable; urgency=low
+
+  * New upstream release.  Upstream URL changes to http://nmap.org/
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 04 Apr 2008 00:40:50 -0600
+
+nmap (4.53-3) unstable; urgency=low
+
+  * zenmap: python 2.5 has python-pysqlite2
+
+ -- LaMont Jones <lamont@debian.org>  Thu, 03 Apr 2008 22:16:11 -0600
+
+nmap (4.53-2) unstable; urgency=low
+
+  * zenmap: Depends: python-{gtk2,gobject}.  Closes: #466595
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 19 Feb 2008 21:23:46 -0700
+
+nmap (4.53-1) unstable; urgency=low
+
+  [LaMont Jones]
+  * Package New upstream release.
+  * Cherry pick post-4.53 patches from [fyodor].  Closes: #459884
+    - remove instances of .nse to prevent the docbook man page translation
+      from wrongly including that string at the beginning of lines, which causes
+      errors because nroff confuses it with the .ns nroff no-space mode command
+    - regenerate man page -- remove instances of .nse to prevent the
+      docbook man page translation from wrongly including that string at the
+      beginning of lines, which causes errors because nroff confuses it with
+      the .ns nroff no-space mode command
+
+  [stoiko]
+
+  * if nse's connect is issued on an open socket, close the old
+    connection before
+  * move the check, wheter a socket is open, before connecting it again to
+    l_nsock_queued() - otherwise there are problems with the returned values..
+
+  [fyodor]
+
+  * qualify fingerprint name
+  * spell-check, add 4.50 release announcement
+  * improve a mysql signature (suggested by Lionel Cons)
+  * sorting change, I think
+  * remove a duplicate for rpc number 536870916, userd or vtsk.  I kept vksd
+    though without much research.  I'm open to comments from people who think
+    we should keep userd instead.
+  * Added rpcinfo.nse script, which contacts a listening RPC portmapper
+  * improve nginx detection. patch from Sven Klemm.
+    See http://seclists.org/nmap-dev/2007/q4/0682.html
+  * remove claim that using -v more than twice has no extra effect
+  * o Fix a bunch of warning/error messages which contained an extra
+  * o Fixed our Winpcap installer so that it waits for a Winpcap uninstall
+  * o Fixed Winpcap installer to install the right version of Packet.dll
+  * Update changelog and version numbers in preparation for 4.51BETA release
+  * fix version number
+  * update some links
+  * update copyright line at the top of files from 1996-2006 to 1996-2008
+  * remove duplicate crediting in an entry
+  * o Fixed Nmap Winpcap installer to use CurrentVersion registry key on
+  * add _ to the allowed workgroup name regex for netbios-ssn matchlines.
+    Thanks to Bill Jaeger for the suggestion and partial patch
+  * Update changelog, version numbers in prep for Nmap 4.52 release
+  * trivial CHANGELOG adjustment
+  * applied an nginx http proxy signature patch from Sven Klemm
+  * Fix a problem which prevented proper port number matching in
+    port_or_service() because the port variable passed to portnumber is
+    shadowed by the variable passed during portrule check.  Report and
+    patch are from Sven Klemm
+  * o Improved rpcinfo.nse to better sort and display available RPC
+  * Remove own ntohl() and use packet.u32() instead.  Patch from Sven Klemm
+  * o Added UPnP-info NSE script by Thomas Buchanan. It gathers
+  * o Impoved Windows executable installer by making uninstall work better
+  * update version number and changelog in prep for upcoming 4.53 release
+
+  [kris]
+
+  * recommitting my r6499: "fix robots.nse output: remove robots.txt
+    comments on disallowed entry lines"
+  * Adding my strftime()-like conversion extensions to the logging functions
+    (-oA, -oX, etc).  This contains a CHANGELOG entry and refguide changes
+    which (hopefully) sum it up pretty well.
+  * okay, a change to r6530: the current %R and %T are being removed as
+    colons are invalid chracters in Windows and Mac OS X filenames (thanks to
+    jah for pointing out the problem on Windows).  What was %r and %t are now
+    the new %R and %T.  All this means is that %r and %t are gone, and %R/%T
+    are the same as with strftime() but without colons
+  * adding CHANGELOG entry for r6529 (robots.nse output fix)
+  * Add CHANGELOG entry for r6558: "Fix Zenmap crash when selecting Help from
+    the Compare Results window.  Path wasn't imported"
+  * Adding new MySQLinfo NSE script for printing MySQL server information
+  * Upgrading libpcre from version 7.2 to 7.4.  Tested on Linux and Windows
+  * Fixing build problem on Mac OS X; my mistake (typo)
+  * adding nmap.fetchfile() function so scripts can find the nmap-* data files
+  * updating rpcinfo.nse to use nmap.fetchfile() instead of having the huge
+    RPC table
+  * o Fixed multiple NSE scripts that weren't always properly closing their
+
+  [ejlbell]
+
+  * Traceroute bugfix for when the first hop of the first host in a
+    tracegroup (reference trace) times out. The previous patch did not
+    completely solve the issue due to an erronous check on the ttl, now we
+    use a dedicated boolean flag. Thanks to Sebastián García for the bug
+    report and testing.
+
+  [david]
+
+  * Document Zenmap r6535 in CHANGELOG.
+  * Escape OS fingerprints when writing them to an XML log. OS fingerprint don't
+  * Consider Windows paths starting with \ absolute when used with the
+    --script option.
+  * Document Zenmap r6539 in CHANGELOG.
+  * Give credit for some recent CHANGELOG entries.
+  * Use just PAGE_READWRITE, not PAGE_READONLY | PAGE_READWRITE in the call to
+  * Fix the message printed when a host is skipped, for example on Windows when
+  * Use the filename tag for file name extensions in zenmap.xml.
+  * Fixed an error that showed itself on Windows when attempting to scan
+
+  [doug]
+
+  * Small bug in Polycom ViewStation match line
+  * Changed some protocol names to remove trailing
+  * Updated the IRC server info script to handle services
+  * s modifiers added to many match lines.
+  * I've seen "OpenBSD identd" on a linux box so I
+  * Renamed irc-serv protocols to irc and added a couple
+  * Moved BIND match line above a "catch all" line.
+  * NSE --host-timeout support
+  * NSE run-time interaction support
+  * New OfficeScan probe from Tom Sellers
+
+ -- LaMont Jones <lamont@debian.org>  Sun, 13 Jan 2008 02:07:40 -0700
+
+nmap (4.50-4) unstable; urgency=low
+
+  * control: zenmap Depends: python-pysqlite2.  Closes: #457694
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 25 Dec 2007 09:06:55 -0700
+
+nmap (4.50-3) unstable; urgency=low
+
+  * use global copyright file for zenmap
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 22 Dec 2007 11:14:17 -0700
+
+nmap (4.50-2) unstable; urgency=low
+
+  * copyright: incorporate remaining copyright info from upstream
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 22 Dec 2007 09:37:25 -0700
+
+nmap (4.50-1) unstable; urgency=low
+
+  [Fyodor]
+
+  * New upstream release.  Many changes.  Closes: #456232
+
+  [LaMont Jones]
+
+  * debian/rules: nmapfe migration
+  * build: properly target install
+  * build: finish cleaning up the build process, I hope.
+  * meta: drop usr/share/pixmaps/ubuntu.svg, collides with gnome-screensaver
+  * meta: zenmap Conflicts/Replaces/Provides nmapfe
+  * rules: sed hack: remove build directory from python code
+
+ -- LaMont Jones <lamont@debian.org>  Thu, 13 Dec 2007 13:39:44 -0700
+
+nmap (4.49~rc7-1) experimental; urgency=low
+
+  * New upstream
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 11 Dec 2007 07:25:17 -0700
+
+nmap (4.49~rc6-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 27 Nov 2007 06:07:37 -0700
+
+nmap (4.20-3) unstable; urgency=low
+
+  * build: make clean target really clean things.  Closes: #442687
+  * debian/rules: remove bashisms
+
+ -- LaMont Jones <lamont@debian.org>  Thu, 08 Nov 2007 21:16:35 -0700
+
+nmap (4.20-2) unstable; urgency=low
+
+  * nmapfe: desktop file cleanup, validation, deliver icon.  Closes: #421347
+  * metadata: document git repository
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 11 Sep 2007 12:57:51 -0600
+
+nmap (4.20-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 12 Dec 2006 23:54:39 -0700
+
+nmap (4.11-2) unstable; urgency=low
+
+  * cleanup warnings
+
+ -- LaMont Jones <lamont@debian.org>  Tue,  1 Aug 2006 14:17:54 -0600
+
+nmap (4.11-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- LaMont Jones <lamont@debian.org>  Tue,  1 Aug 2006 07:57:34 -0600
+
+nmap (4.10-1) unstable; urgency=low
+
+  * New upsteam version
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 13 Jun 2006 22:41:11 -0600
+
+nmap (4.03-3) unstable; urgency=low
+
+  * Add missing Replaces.  Closes: #365378
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 29 Apr 2006 22:09:02 -0600
+
+nmap (4.03-2) unstable; urgency=low
+
+  * deliver nmapfe.desktop as part of the nmapfe package.  Closes: #306373
+  * don't strip nmap in Makefile, let dh_strip do that in debian/rules.
+    Closes: #304202
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 26 Apr 2006 14:56:48 -0600
+
+nmap (4.03-1) unstable; urgency=low
+
+  * New upstream.
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 26 Apr 2006 14:18:25 -0600
+
+nmap (4.00-2) unstable; urgency=low
+
+  * uh... lets try "unstable"
+
+ -- LaMont Jones <lamont@debian.org>  Wed,  1 Feb 2006 12:32:06 -0700
+
+nmap (4.00-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- LaMont Jones <lamont@debian.org>  Wed,  1 Feb 2006 06:19:59 -0700
+
+nmap (3.9999-0) experimental; urgency=low
+
+  * New upstream version
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 28 Jan 2006 12:35:14 -0700
+
+nmap (3.95-2) unstable; urgency=low
+
+  * Use libpcap0.8-dev
+
+ -- LaMont Jones <lamont@debian.org>  Thu, 19 Jan 2006 11:49:52 -0700
+
+nmap (3.95-1) unstable; urgency=low
+
+  * New upstream
+
+ -- LaMont Jones <lamont@debian.org>  Fri,  9 Dec 2005 13:50:57 -0700
+
+nmap (3.93-1) unstable; urgency=low
+
+  * New upstream
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 12 Sep 2005 23:34:04 -0600
+
+nmap (3.90-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- LaMont Jones <lamont@debian.org>  Thu,  8 Sep 2005 10:39:09 -0600
+
+nmap (3.81-2) unstable; urgency=low
+
+  * Fix FTBFS when DEB_BUILD_OPTIONS specified.  Closes: #308583
+    Thanks Tollef Fog Heen.
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 11 May 2005 22:34:05 -0600
+
+nmap (3.81-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- LaMont Jones <lamont@debian.org>  Mon,  7 Mar 2005 19:32:55 -0700
+
+nmap (3.75-1) unstable; urgency=low
+
+  * New upstream version.  Closes: #277924
+
+ -- LaMont Jones <lamont@debian.org>  Sun, 24 Oct 2004 17:43:06 -0600
+
+nmap (3.70-1) unstable; urgency=low
+
+  * New upstream version.  Closes: #270697
+    Fixes build-detection for k*bsd-gnu.  Closes: #266901
+    Updated copyright.  Closes: #266205
+  * Update package description
+
+ -- LaMont Jones <lamont@debian.org>  Thu,  9 Sep 2004 10:49:20 -0600
+
+nmap (3.55-1) unstable; urgency=low
+
+  * New upstream.  Closes: #258757
+
+ -- LaMont Jones <lamont@debian.org>  Sun, 11 Jul 2004 18:57:47 -0600
+
+nmap (3.50-1) unstable; urgency=low
+
+  * New upstream version.  Closes: #229275
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 23 Jan 2004 20:08:35 -0700
+
+nmap (3.48-2) unstable; urgency=low
+
+  * Add missing build-depends.
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 22 Nov 2003 19:39:17 -0700
+
+nmap (3.48-1) unstable; urgency=low
+
+  * New upstream version.  Closes: #217501
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 25 Oct 2003 14:15:36 -0600
+
+nmap (3.45-1) unstable; urgency=low
+
+  * New upstream release.  Closes: #201777, #196418, #195463, #165621
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 15 Sep 2003 18:47:48 -0600
+
+nmap (3.27-1) unstable; urgency=low
+
+  * New upstream version.  Closes: #193909, #149393, #146581
+  * Fix CXXFLAGS.  Closes: #189021
+  * Change man page from \' to ' for quotes.  Closes: #143975
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 19 May 2003 18:13:23 -0600
+
+nmap (3.20-1) unstable; urgency=low
+
+  * New upstream version.  Closes: #184414, #188468, #172618, #144089, #164211
+
+ -- LaMont Jones <lamont@debian.org>  Thu, 10 Apr 2003 23:12:25 -0600
+
+nmap (3.10.ALPHA4-1) unstable; urgency=low
+
+  * New upstream version
+  * Deliver upstream changelog.  Closes: #155836
+
+ -- LaMont Jones <lamont@debian.org>  Sun, 24 Nov 2002 13:26:43 -0700
+
+nmap (3.00-0.1) unstable; urgency=low
+
+  * New upstream version.  Use an NMU version number just for elmo.
+    Closes: #152907, #155598, #151375
+
+ -- LaMont Jones <lamont@debian.org>  Tue,  6 Aug 2002 13:59:51 -0600
+
+nmap (2.54.33.BETA-1) unstable; urgency=low
+
+  * New upstream version. Lots of OS fingerprint updates.  Closes: #145031
+
+ -- LaMont Jones <lamont@debian.org>  Sun,  5 May 2002 11:17:05 -0600
+
+nmap (2.54.32.BETA-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 20 Apr 2002 12:07:12 -0600
+
+nmap (2.54.31.BETA-1) unstable; urgency=low
+
+  * New upstream version.  Closes: #117675, #132907.
+  * Remove /usr/share/doc/nmap/html.  Closes: #107358.
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 20 Mar 2002 10:49:25 -0700
+
+nmap (2.54.30.BETA-1) unstable; urgency=low
+
+  * New upstream version.  Closes: #115797
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 17 Oct 2001 12:33:45 -0600
+
+nmap (2.54.28.BETA-1) unstable; urgency=low
+
+  * New upstream version.  Closes: #102920
+  * Roll to current standards-version.
+  * Remove -g from options unless DEB_BUILD_OPTIONS includes 'debug'.
+
+ -- LaMont Jones <lamont@security.hp.com>  Sat, 28 Jul 2001 23:27:48 -0600
+
+nmap (2.54.27.BETA-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- LaMont Jones <lamont@security.hp.com>  Thu, 19 Jul 2001 19:42:36 -0600
+
+nmap (2.54.25.BETA-1) unstable; urgency=low
+  * New upstream version.
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 11 Jun 2001 22:26:34 -0600
+
+nmap (2.54.22.BETA-2) unstable; urgency=low
+  * PARISC support.  New config.guess, config.sub, and printf fixes
+    for gcc 3.0.
+
+ -- LaMont Jones <lamont@debian.org>  Tue,  8 May 2001 09:13:24 -0600
+
+nmap (2.54.22.BETA-1) unstable; urgency=low
+  * New upstream beta.  Closes: #90553.
+  * Add Build-Depends: header.
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 21 Mar 2001 07:59:59 -0700
+
+nmap (2.54-0.beta7.1) unstable; urgency=low
+  * New upstream version (beta). Closes: #71642.
+  * Correct reference to X Window System.  Closes: #76076.
+  * Appears to fix segfault in nmapfe (unable to reproduce).
+    Closes: #76019.
+
+ -- LaMont Jones <lamont@debian.org>  Thu, 30 Nov 2000 06:57:14 -0700
+
+nmap (2.53-5) unstable; urgency=low
+  * Fix xnmap man page.  Closes: #65016
+
+ -- LaMont Jones <lamont@debian.org>  Thu,  8 Jun 2000 18:50:58 -0600
+
+nmap (2.53-3) unstable; urgency=low
+  * Link with libgtk1.2 (not libgtk1).  Closes: #64705, #64709
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 26 May 2000 07:19:25 -0600
+
+nmap (2.53-2) unstable; urgency=low
+  * Fix xnmap man page.  Closes: #64689.
+
+ -- LaMont Jones <lamont@debian.org>  Thu, 25 May 2000 21:01:53 -0600
+
+nmap (2.53-1) unstable; urgency=low
+  * New upstream beta release, closes: #61350, #59955, #61043, #60588, #63709
+  * man pages for xnmap and nmapfe, closes: #62858
+  * 2.12-5 didn't make it into frozen.  closes: #59955
+  * switch from dh_dhelp to doc-base; makefile cleanup
+
+ -- LaMont Jones <lamont@debian.org>  Thu, 25 May 2000 09:15:49 -0600
+
+nmap (2.3BETA14-0) unstable; urgency=low
+  * New upstream beta release, closes: #60344
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 15 Mar 2000 11:27:13 -0600
+
+nmap (2.12-5) frozen; urgency=low
+  * Don't deliver man pages into /usr/man.  Closes: #59955
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 15 Mar 2000 09:21:38 -0600
+
+nmap (2.12-4) frozen; urgency=low
+  * New nmap-os-fingerprints and nmap-services files.  Closes #54143.
+
+ -- LaMont Jones <lamont@debian.org>  Sun, 20 Feb 2000 12:23:50 -0600
+
+nmap (2.12-3) unstable; urgency=low
+  * bad configure command for libpcap-possiblymodified (Bug#38739)
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 24 Jul 1999 09:21:04 -0600
+
+nmap (2.12-2) unstable; urgency=low
+  * Add dhelp support: fixes 31162
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 12 May 1999 17:15:23 -0600
+
+nmap (2.12-1) unstable; urgency=low
+
+  * new maintainer, many thanks to Bdale for packaging the previous versions.
+  * new upstream version, corrects 34039.
+  * Correct copyright file (closes 35848).
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 26 Apr 1999 20:59:57 -0600
+
+nmap (2.02-1) unstable; urgency=low
+
+  * new upstream version
+  * merge README.debian into copyright file, update to reflect current source
+    location
+
+ -- Bdale Garbee <bdale@gag.com>  Thu,  7 Jan 1999 00:19:31 -0700
+
+nmap (1.51-2) unstable; urgency=low
+
+  * fixed file overlap created by new upstream source, closes 25347
+
+ -- Bdale Garbee <bdale@gag.com>  Mon,  3 Aug 1998 22:22:24 -0600
+
+nmap (1.51-1) unstable; urgency=low
+
+  * new upstream version
+
+ -- Bdale Garbee <bdale@gag.com>  Sat,  1 Aug 1998 22:49:04 -0600
+
+nmap (1.49-1) frozen unstable; urgency=low
+
+  * new upstream source, includes fix that closes 17115
+  * use existing libpcap shared lib instead of static linking a local copy
+  * fix dependency specification
+
+ -- Bdale Garbee <bdale@gag.com>  Fri, 10 Apr 1998 01:28:36 -0600
+
+nmap (1.36-1) frozen unstable; urgency=low
+
+  * new upstream source, mostly bug fixes and cleanups
+  * fix typos in control file, closes 18950
+
+ -- Bdale Garbee <bdale@gag.com>  Tue, 31 Mar 1998 23:09:19 -0700
+
+nmap (1.30-1) unstable; urgency=low
+
+  * initial release
+
+ -- Bdale Garbee <bdale@gag.com>  Tue, 16 Dec 1997 00:40:01 -0700

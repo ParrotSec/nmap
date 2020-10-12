@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        tac /usr/share/nmap/nselib/data/psexec/nmap_service.ex_ | base64 -d | zcat > /usr/share/nmap/nselib/data/psexec/nmap_service.exe ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure) ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
