@@ -1,3 +1,9 @@
+nmap (7.91-parrot0) rolling-testing; urgency=medium
+
+  * Init parrot team release
+
+ -- Nong Hoang Tu <dmknght@parrotsec.org>  Tue, 02 Mar 2021 23:14:45 +0700
+
 nmap (7.91+dfsg1-1kali1) kali-dev; urgency=medium
 
   * Import new upstream release. Keep libpcap embedded for Kali
