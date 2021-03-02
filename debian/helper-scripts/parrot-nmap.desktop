@@ -2,10 +2,9 @@
 Name=nmap
 Comment=Network exploration or security auditing
 Encoding=UTF-8
-Exec=menuexec "nmap"
+Exec=pentestexec "nmap"
 Icon=parrot-nmap.png
 StartupNotify=false
 Terminal=true
 Type=Application
 Categories=01-info-gathering;01-04-network-scanners;
-X-Parrot-Package=nmap
