@@ -1,10 +1,11 @@
 Source: nmap
 Section: net
 Priority: optional
-XSBC-Original-Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
-Maintainer: Kali Developers <devel@kali.org>
-Uploaders: Hilko Bengen <bengen@debian.org>,
-           Samuel Henrique <samueloph@debian.org>
+XSBC-Original-Maintainer:
+  Debian Security Tools <team+pkg-security@tracker.debian.org>,
+  Kali Developers <devel@kali.org>
+Maintainer: Parrot Team <team@parrotsec.org>
+Uploaders: Nong Hoang Tu <dmknght@parrotsec.org>
 Build-Depends: bison,
                debhelper-compat (= 13),
                dh-python,
@@ -20,11 +21,11 @@ Build-Depends: bison,
                python3,
 Build-Depends-Indep: default-jdk-headless,
                      gcc-mingw-w64-i686
-Standards-Version: 4.5.0
+Standards-Version: 4.5.1
 Rules-Requires-Root: no
 Homepage: https://nmap.org/
-Vcs-Git: https://gitlab.com/kalilinux/packages/nmap.git
-Vcs-Browser: https://gitlab.com/kalilinux/packages/nmap
+Vcs-Git: https://nest.parrotsec.org/packages/tools/nmap.git
+Vcs-Browser: https://nest.parrotsec.org/packages/tools/nmap
 
 Package: nmap
 Architecture: any
