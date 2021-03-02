@@ -2,7 +2,7 @@
 Name=ncat
 Comment=NMAP netcat reimplementation
 Encoding=UTF-8
-Exec=menuexec "ncat -h"
+Exec=pentestexec "ncat -h"
 Icon=parrot-menu.png
 StartupNotify=false
 Terminal=true
