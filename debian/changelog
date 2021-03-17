@@ -1,3 +1,10 @@
+nmap (7.91+dfsg1-1) rolling-testing; urgency=medium
+
+  * Add ndiff launcher
+  * Add ndiff launcher to installer
+
+ -- Nong Hoang Tu <dmknght@parrotsec.org>  Thu, 18 Mar 2021 04:16:31 +0700
+
 nmap (7.91-parrot0) rolling-testing; urgency=medium
 
   * Init parrot team release
