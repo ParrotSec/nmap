@@ -1,3 +1,9 @@
+nmap (7.92-0parrot1) rolling-testing; urgency=medium
+
+  * New upstream version 7.92+dfsg1
+
+ -- Nong Hoang Tu <dmknght@parrotsec.org>  Mon, 09 Aug 2021 01:38:09 +0700
+
 nmap (7.91+dfsg1-1) rolling-testing; urgency=medium
 
   * Add ndiff launcher
