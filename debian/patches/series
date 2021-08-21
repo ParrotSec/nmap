@@ -1,5 +1,4 @@
 0002-Use-Debian-s-ca-certificates.patch
 0003-Link-against-lua-lpeg.patch
-0005-ncat-manpage-self-reference.patch
 0004-Python3-port-of-ndiff.patch
 Fix-libssh2-Makefile.am.patch
