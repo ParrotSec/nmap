@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=nmap
+Name=Nmap - the Network Mapper
 Comment=Network exploration or security auditing
 Encoding=UTF-8
 Exec=pentestexec "nmap"
