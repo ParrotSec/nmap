@@ -1,3 +1,11 @@
+nmap (7.92+dfsg1-1) rolling; urgency=medium
+
+  * Change installation name prefix for nmap
+  * Remove patch which make pkg build failed
+  * update launcher name for nmap
+
+ -- Nong Hoang Tu <dmknght@parrotsec.org>  Sat, 21 Aug 2021 08:23:57 +0700
+
 nmap (7.92-0parrot1) rolling-testing; urgency=medium
 
   * New upstream version 7.92+dfsg1
