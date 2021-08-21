@@ -1,4 +1,4 @@
 usr/bin/ndiff
 usr/lib/python3*/dist-packages/ndiff.py
 usr/share/man/man1/ndiff.1
-debian/helper-scripts/parrot-ndiff.desktop usr/share/applications/
+debian/helper-scripts/ndiff.desktop usr/share/applications/

@@ -3,4 +3,4 @@ usr/bin/nping
 usr/share/man/*/man1/nmap.1
 usr/share/man/man1/nmap.1
 usr/share/man/man1/nping.1
-debian/helper-scripts/parrot-nmap.desktop usr/share/applications/
+debian/helper-scripts/nmap.desktop usr/share/applications/
