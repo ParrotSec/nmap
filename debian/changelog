@@ -1,3 +1,9 @@
+nmap (7.92+dfsg1-2) rolling; urgency=medium
+
+  * Remove launchers
+
+ -- Nong Hoang Tu <dmknght@parrotsec.org>  Fri, 29 Oct 2021 22:32:17 +0700
+
 nmap (7.92+dfsg1-1) rolling; urgency=medium
 
   * Change installation name prefix for nmap
