@@ -1,3 +1,9 @@
+nmap (7.92+dfsg1-2parrot1) parrot-update; urgency=medium
+
+  * Use embedded libpcap on parrot.
+
+ -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Mon, 02 May 2022 17:44:43 +0200
+
 nmap (7.92+dfsg1-2) rolling; urgency=medium
 
   * Remove launchers

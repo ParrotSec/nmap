@@ -9,6 +9,9 @@ endif
 ifeq ($(shell dpkg-vendor --derives-from kali && echo yes),yes)
 	VENDOR_CONFIGURE_OPTIONS = --with-libpcap=included
 endif
+ifeq ($(shell dpkg-vendor --derives-from parrot $$ echo yes), yes)
+	VENDOR_CONFIGURE_OPTIONS = --with-libpcap=included
+endif
 
 %:
 	dh $@ --with=python3
