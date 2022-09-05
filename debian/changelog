@@ -1,3 +1,9 @@
+nmap (7.93-0parrot1) parrot-updates; urgency=medium
+
+  * New upstream version 7.93+dfsg1
+
+ -- Nong Hoang Tu <dmknght@parrotsec.org>  Mon, 05 Sep 2022 21:04:43 +0700
+
 nmap (7.92+dfsg1-2parrot1) parrot-update; urgency=medium
 
   * Use embedded libpcap on parrot.
