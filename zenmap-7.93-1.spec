@@ -3,7 +3,7 @@
 #     --define "__python /usr/bin/python2.5"
 
 %define name zenmap
-%define version 7.92
+%define version 7.93
 %define release 1
 %define _prefix /usr
 
