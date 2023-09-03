@@ -9,13 +9,9 @@
 #     --define "openssl /usr/local/ssl"
 
 %define name nmap
-%define version 7.93
+%define version 7.94
 %define release 1
 %define _prefix /usr
-
-# Find where Python modules are installed. See
-# http://fedoraproject.org/wiki/Packaging/Python.
-%{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 
 Summary: Network exploration tool and security scanner
 Name: %{name}
@@ -35,7 +31,8 @@ URL: https://nmap.org
 # modules were installed so it's not dependent on any particular ABI.
 AutoReqProv: no
 # For Ndiff.
-Requires: python >= 2.4
+BuildRequires: python3-devel, epel-rpm-macros
+Requires: python >= 3.0
 
 # RPM can't be relocatable until I stop storing path info in the binary.
 # Prefix: %{_prefix}
@@ -96,8 +93,8 @@ gzip $RPM_BUILD_ROOT%{_mandir}/man1/* || :
 %{_datadir}/nmap
 
 %{_bindir}/ndiff
-# Ndiff is now a module and has e.g. /usr/lib/python2.4/site-packages/ndiff.py, /usr/lib/python2.4/site-packages/ndiff.pyc
-%{python_sitelib}/ndiff*
+# Ndiff is now a module and has e.g. /usr/lib/python3.10/site-packages/ndiff.py, /usr/lib/python3.10/site-packages/ndiff.pyc
+%pycached %{python3_sitelib}/ndiff.py
 %doc %{_prefix}/share/man/man1/ndiff.1.gz
 
 # Ncat subpackage
