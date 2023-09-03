@@ -1,8 +1,0 @@
-usr/share/nmap
-docs/3rd-party-licenses.txt usr/share/doc/nmap/
-docs/committers.txt usr/share/doc/nmap/
-docs/device-types.txt usr/share/doc/nmap/
-docs/leet-nmap-ascii-art.txt usr/share/doc/nmap/
-docs/nmap.usage.txt usr/share/doc/nmap/
-docs/nmap_gpgkeys.txt usr/share/doc/nmap/
-docs/style usr/share/doc/nmap/
