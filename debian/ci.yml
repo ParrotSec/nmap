@@ -1,0 +1,21 @@
+include: https://salsa.debian.org/salsa-ci-team/pipeline/raw/master/salsa-ci.yml
+
+extract-source:
+    extends: .provisioning-extract-source
+
+variables:
+  RELEASE: 'stable'
+
+build:
+  extends: .build-package
+
+before_script:
+  - apt update
+  - apt install curl gnupg2 -y
+  - echo "deb http://kaermorn.rfc2549.network/parrot lory main contrib non-free non-free-firmware" | tee /etc/apt/sources.list.d/parrot.list
+  - echo "deb http://kaermorn.rfc2549.network/parrot lory-security main contrib non-free non-free-firmware" | tee -a /etc/apt/sources.list.d/parrot.list
+  - echo "deb http://kaermorn.rfc2549.network/parrot lory-backports main contrib non-free non-free-firmware" | tee -a /etc/apt/sources.list.d/parrot.list
+  - curl -kfsSL http://kaermorn.rfc2549.network/parrot/staging-key.pgp | apt-key --keyring /etc/apt/trusted.gpg.d/parrot-keyring.gpg add -
+  - apt update
+
+
