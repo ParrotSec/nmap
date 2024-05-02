@@ -59,7 +59,7 @@
  *
  ***************************************************************************/
 
-/* $Id: nbase_winconfig.h 38653 2023-04-14 17:11:46Z dmiller $ */
+/* $Id$ */
 
 #ifndef NBASE_WINCONFIG_H
 #define NBASE_WINCONFIG_H

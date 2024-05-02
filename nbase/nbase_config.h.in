@@ -60,7 +60,7 @@
  *
  ***************************************************************************/
 
-/* $Id: nbase_config.h.in 38653 2023-04-14 17:11:46Z dmiller $ */
+/* $Id$ */
 #ifndef NBASE_CONFIG_H
 #define NBASE_CONFIG_H
 

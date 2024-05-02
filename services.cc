@@ -58,13 +58,13 @@
  *
  ***************************************************************************/
 
-/* $Id: services.cc 38653 2023-04-14 17:11:46Z dmiller $ */
+/* $Id$ */
 
 #include "scan_lists.h"
 #include "services.h"
 #include "protocols.h"
 #include "NmapOps.h"
-#include "charpool.h"
+#include "string_pool.h"
 #include "nmap_error.h"
 #include "utils.h"
 
@@ -231,7 +231,7 @@ static int nmap_services_init() {
       sn.s_name = NULL;
     }
     else {
-      sn.s_name = cp_strdup(servicename);
+      sn.s_name = string_pool_insert(servicename);
     }
     sn.s_port = portno;
     sn.s_proto = npe->p_name;
@@ -278,6 +278,7 @@ void free_services() {
 
 int addportsfromservmask(const char *mask, u8 *porttbl, int range_type) {
   ServiceMap::const_iterator i;
+  const char *name = NULL;
   int t = 0;
 
   if (!services_initialized && nmap_services_init() == -1)
@@ -285,7 +286,11 @@ int addportsfromservmask(const char *mask, u8 *porttbl, int range_type) {
 
   for (i = service_table.begin(); i != service_table.end(); i++) {
     const service_node& current = i->second;
-    if (wildtest(mask, current.s_name)) {
+    if (!current.s_name)
+      name = "unknown";
+    else
+      name = current.s_name;
+    if (wildtest(mask, name)) {
       if ((range_type & SCAN_TCP_PORT) && strcmp(current.s_proto, "tcp") == 0) {
         porttbl[current.s_port] |= SCAN_TCP_PORT;
         t++;
@@ -491,9 +496,10 @@ void gettoppts(double level, const char *portlist, struct scan_lists * ports, co
         if (sctpmax && strcmp(current->s_proto, "sctp") == 0
             && (!ptsdata_initialized ||
               is_port_member(ptsdata.sctp_ports, ptsdata.sctp_count, current))
-           )
+           ) {
           ports->sctp_ports[ports->sctp_count++] = current->s_port;
-        sctpmax--;
+          sctpmax--;
+        }
         break;
       default:
         break;

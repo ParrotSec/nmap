@@ -11,30 +11,34 @@ trim_version() {
 }
 
 check_libpcre() {
-    PCRE_SOURCE="https://sourceforge.net/projects/pcre/files/latest/download"
+    PCRE_SOURCE="https://github.com/PCRE2Project/pcre2/releases/latest"
     PCRE_MAJOR=""
     PCRE_MINOR=""
-    eval $(grep '^PCRE_MAJOR=' $NDIR/libpcre/configure)
-    eval $(grep '^PCRE_MINOR=' $NDIR/libpcre/configure)
-    PCRE_VERSION="$PCRE_MAJOR.$PCRE_MINOR"
-    PCRE_LATEST=$(curl -s -I $PCRE_SOURCE | perl -lne 'if(/pcre-(\d+.\d+).zip/){print $1}' | newest)
+    eval $(grep '^PCRE2_MAJOR=' $NDIR/libpcre/configure)
+    eval $(grep '^PCRE2_MINOR=' $NDIR/libpcre/configure)
+    PCRE_VERSION="$PCRE2_MAJOR.$PCRE2_MINOR"
+    PCRE_LATEST=$(curl -s -I $PCRE_SOURCE | tee tmp.txt | perl -lne 'if(m|^Location:.*/tag/pcre2-(\d+.\d+)[\r\n]*$|){print $1;exit(0)}')
     if [ "$PCRE_VERSION" != "$PCRE_LATEST" ]; then
         echo "Newer version of libpcre available"
         echo "  Current:" $PCRE_VERSION
         echo "  Latest: " $PCRE_LATEST
         echo "  Source: $PCRE_SOURCE"
+    else
+      echo "libpcre: $PCRE_VERSION"
     fi
 }
 
 check_libpcap() {
     PCAP_SOURCE="https://www.tcpdump.org/release/"
-    PCAP_VERSION=$(cat $NDIR/libpcap/VERSION)
+    PCAP_VERSION=$(cat $NDIR/libpcap/VERSION 2>/dev/null || cat $NDIR/libpcap/VERSION.txt)
     PCAP_LATEST=$(curl -s $PCAP_SOURCE | perl -lne 'if(/libpcap-([\d.]+).tar.gz/){print $1}' | newest)
     if [ "$PCAP_VERSION" != "$PCAP_LATEST" ]; then
         echo "Newer version of libpcap available"
         echo "  Current:" $PCAP_VERSION
         echo "  Latest: " $PCAP_LATEST
         echo "  Source: $PCAP_SOURCE"
+    else
+      echo "libpcap: $PCAP_VERSION"
     fi
 }
 
@@ -58,6 +62,8 @@ EOC
         echo "  Current:" $LUA_VERSION
         echo "  Latest: " $LUA_LATEST
         echo "  Source: $LUA_SOURCE"
+    else
+      echo "liblua: $LUA_VERSION"
     fi
 }
 
@@ -77,6 +83,8 @@ check_zlib() {
         echo "  Current:" $ZLIB_VERSION
         echo "  Latest: " $ZLIB_LATEST
         echo "  Source: $ZLIB_SOURCE"
+    else
+      echo "zlib: $ZLIB_VERSION"
     fi
 }
 
@@ -89,6 +97,8 @@ check_libssh2() {
         echo "  Current:" $LIBSSH2_VERSION
         echo "  Latest: " $LIBSSH2_LATEST
         echo "  Source: $LIBSSH2_SOURCE"
+    else
+      echo "libssh2: $LIBSSH2_VERSION"
     fi
 }
 

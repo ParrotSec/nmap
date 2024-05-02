@@ -58,7 +58,7 @@
  *
  ***************************************************************************/
 
-/* $Id: protocols.h 38653 2023-04-14 17:11:46Z dmiller $ */
+/* $Id$ */
 
 #ifndef PROTOCOLS_H
 #define PROTOCOLS_H
@@ -71,7 +71,7 @@
 
 struct nprotoent {
   const char *p_name;
-  short p_proto;
+  u16 p_proto;
 };
 
 int addprotocolsfromservmask(char *mask, u8 *porttbl);

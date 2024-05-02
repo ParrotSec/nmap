@@ -55,7 +55,7 @@
  *
  ***************************************************************************/
 
-/* $Id: ncat_listen.c 38653 2023-04-14 17:11:46Z dmiller $ */
+/* $Id$ */
 
 #include "ncat.h"
 
@@ -376,13 +376,13 @@ restart_fd_loop:
                 } else {
                     /* Read from stdin and write to all clients. */
                     rc = read_stdin();
-                    if (rc == 0) {
+                    if (rc == 0 && type == SOCK_STREAM) {
                         if (o.proto != IPPROTO_TCP || (o.proto == IPPROTO_TCP && o.sendonly)) {
                             /* There will be nothing more to send. If we're not
                                receiving anything, we can quit here. */
                             return 0;
                         }
-                        if (!o.noshutdown && type == SOCK_STREAM) shutdown_sockets(SHUT_WR);
+                        if (!o.noshutdown) shutdown_sockets(SHUT_WR);
                     }
                     if (rc < 0)
                         return 1;
@@ -791,7 +791,13 @@ static void shutdown_sockets(int how)
 
         fdn = get_fdinfo(&broadcast_fdlist, i);
         ncat_assert(fdn != NULL);
-        shutdown(fdn->fd, how);
+#ifdef HAVE_OPENSSL
+        if (o.ssl && fdn->ssl) {
+                SSL_shutdown(fdn->ssl);
+        }
+        else
+#endif
+            shutdown(fdn->fd, how);
     }
 }
 

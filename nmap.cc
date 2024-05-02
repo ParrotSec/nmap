@@ -58,7 +58,7 @@
  *
  ***************************************************************************/
 
-/* $Id: nmap.cc 38669 2023-05-09 14:16:46Z dmiller $ */
+/* $Id$ */
 
 #ifdef WIN32
 #include "winfix.h"
@@ -2803,10 +2803,12 @@ static void display_nmap_version() {
   without.push_back("libz");
 #endif
 
+  char pcre2_version[255];
+  pcre2_config(PCRE2_CONFIG_VERSION, pcre2_version);
 #ifdef PCRE_INCLUDED
-  with.push_back(std::string("nmap-libpcre-") + get_word_or_quote(pcre_version(), 0));
+  with.push_back(std::string("nmap-libpcre2-") + get_word_or_quote(pcre2_version, 0));
 #else
-  with.push_back(std::string("libpcre-") + get_word_or_quote(pcre_version(), 0));
+  with.push_back(std::string("libpcre2-") + get_word_or_quote(pcre2_version, 0));
 #endif
 
 #ifdef WIN32
