@@ -3,7 +3,7 @@ set -e
 
 if [ "$1" = "configure" ]; then
     update-alternatives \
-        --install /bin/nc nc /usr/bin/ncat 40 \
+        --install /bin/nc nc /usr/bin/ncat 0 \
         --slave /bin/netcat netcat /usr/bin/ncat \
         --slave /usr/share/man/man1/nc.1.gz nc.1.gz \
                 /usr/share/man/man1/ncat.1.gz \

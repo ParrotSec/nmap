@@ -62,7 +62,7 @@
  *
  ***************************************************************************/
 
-/* $Id: idle_scan.cc 38653 2023-04-14 17:11:46Z dmiller $ */
+/* $Id$ */
 
 /* IPv6 fragment ID sequence algorithms. http://seclists.org/nmap-dev/2013/q3/369.
         Android 4.1 (Linux 3.0.15) | Per host, incremental (1)

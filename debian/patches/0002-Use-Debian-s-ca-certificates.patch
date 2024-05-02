@@ -7,10 +7,10 @@ Subject: Use Debian's ca-certificates
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/ncat/ncat_posix.c b/ncat/ncat_posix.c
-index b9fc3bc..40c731f 100644
+index 1465b2f..259dc28 100644
 --- a/ncat/ncat_posix.c
 +++ b/ncat/ncat_posix.c
-@@ -347,7 +347,7 @@ void set_lf_mode(void)
+@@ -356,7 +356,7 @@ void set_lf_mode(void)
  
  #ifdef HAVE_OPENSSL
  

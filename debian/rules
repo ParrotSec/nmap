@@ -1,15 +1,14 @@
 #!/usr/bin/make -f
 
-export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+# mingw does not know about the arm64 specific cflag branch-protection
+# so strip it out of the build, so that the build doesn't fail.
+export DEB_CFLAGS_MAINT_STRIP = -mbranch-protection=standard
 
 ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
 	VENDOR_CONFIGURE_OPTIONS = --with-libssh2=included
 endif
 ifeq ($(shell dpkg-vendor --derives-from kali && echo yes),yes)
-	VENDOR_CONFIGURE_OPTIONS = --with-libpcap=included
-endif
-ifeq ($(shell dpkg-vendor --derives-from parrot $$ echo yes), yes)
 	VENDOR_CONFIGURE_OPTIONS = --with-libpcap=included
 endif
 
@@ -27,12 +26,12 @@ override_dh_autoreconf:
 
 override_dh_auto_configure:
 	dh_auto_configure -- \
-		--with-liblua \
+		--with-liblua=/usr \
 		--with-liblinear \
 		--without-zenmap \
 		--without-ndiff \
 		--enable-ipv6 \
-		STRIP=/bin/true $(VENDOR_CONFIGURE_OPTIONS)
+		STRIP=/bin/true
 	dh_auto_configure --sourcedir=ndiff --buildsystem=pybuild
 
 override_dh_auto_build-indep:

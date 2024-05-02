@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+  remove|upgrade|deconfigure)
+        rm -f /etc/profile.d/nmap.sh ;;
+  failed-upgrade) ;;
+
+  *)
+        echo "prerm called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

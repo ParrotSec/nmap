@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = configure ]; then
+  # If we have setcap installed, try setting capabilities on
+  if command -v setcap > /dev/null; then
+    if setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap; then
+      echo "Setcap worked! Adding configuration to environment"
+      if [ ! -f /etc/profile.d/nmap.sh ]; then
+        echo 'export NMAP_PRIVILEGED=""' > /etc/profile.d/nmap.sh
+      fi
+    else
+      echo "Setcap failed, doing nothing." >&2
+    fi
+  fi
+fi
+
+#DEBHELPER#
+
+exit 0
